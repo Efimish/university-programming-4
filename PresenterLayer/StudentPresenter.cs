@@ -1,39 +1,28 @@
-﻿using ModelLayer;
-using ViewLayer;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ViewLayer;
+using ModelLayer;
 
 namespace PresenterLayer
 {
     public class StudentPresenter
     {
-        private IModel<Student> model = null;
         private IView view = null;
+        private IModel<Student> model = null;
 
         public StudentPresenter(IView view, IModel<Student> model)
         {
-            this.model = model;
             this.view = view;
-
-            model.EventStudentAdd += AddStudentFromModelToView;
-            model.EventStudentDelete += DeleteStudentFromModelToView;
+            this.model = model;
 
             view.AddDataEvent += AddStudentFromViewToModel;
             view.DeleteDataEvent += DeleteStudentFromViewToModel;
-        }
 
-        private void OnModelDataChanged(IEnumerable<Student> students)
-        {
-            List<StudentArgs> args = new List<StudentArgs>();
-
-            foreach (Student st in students)
-            {
-                args.Add(new StudentArgs(st));
-            }
-            view.RedrawForm(args);
+            model.AddStudentEvent += AddStudentFromModelToView;
+            model.DeleteStudentEvent += DeleteStudentFromModelToView;
         }
 
         private void AddStudentFromModelToView(object sender, StudentArgs args)
@@ -54,4 +43,3 @@ namespace PresenterLayer
         }
     }
 }
- 

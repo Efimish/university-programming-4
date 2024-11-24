@@ -11,7 +11,9 @@ namespace ModelLayer
     {
         void Add(T item);
         void Delete(int index);
-        event EventHandler<StudentArgs> EventStudentAdd;
-        event EventHandler<int> EventStudentDelete;
+
+
+        event EventHandler<StudentArgs> AddStudentEvent;
+        event EventHandler<int> DeleteStudentEvent;
     }
 }

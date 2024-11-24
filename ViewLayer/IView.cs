@@ -9,11 +9,10 @@ namespace ViewLayer
 {
     public interface IView
     {
-        event Action<EventArgs> AddDataEvent;
-        event Action<int> DeleteDataEvent;
-
         void AddStudent(StudentArgs args);
-        void DeleteStudent(int args);
-        void RedrawForm(IEnumerable<EventArgs> args);
+        void DeleteStudent(int index);
+
+        event EventHandler<StudentArgs> AddDataEvent;
+        event EventHandler<int> DeleteDataEvent;
     }
 }
