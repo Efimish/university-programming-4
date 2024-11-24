@@ -13,12 +13,13 @@ namespace PresenterLayer
         static void Main(string[] args)
         {
             FormMain view = new FormMain();
-            view.Show();
+            //view.Show();
 
             Model model = new Model();
 
             StudentPresenter presenter = new StudentPresenter( view, model );
 
+            System.Windows.Forms.Application.Run(view);
             //while (true) { }
         }
     }

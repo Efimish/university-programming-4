@@ -44,37 +44,37 @@
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 25;
             this.listBox1.Items.AddRange(new object[] {
-            "asd",
-            "zxc",
-            "qew"});
+            "item 1",
+            "item 2",
+            "item 3"});
             this.listBox1.Location = new System.Drawing.Point(12, 12);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(785, 404);
+            this.listBox1.Size = new System.Drawing.Size(785, 454);
             this.listBox1.TabIndex = 0;
             // 
             // buttonAdd
             // 
-            this.buttonAdd.Location = new System.Drawing.Point(1103, 366);
+            this.buttonAdd.Location = new System.Drawing.Point(803, 280);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(294, 90);
             this.buttonAdd.TabIndex = 1;
-            this.buttonAdd.Text = "добавить студента";
+            this.buttonAdd.Text = "Добавить студента";
             this.buttonAdd.UseVisualStyleBackColor = true;
             this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
             // buttonDelete
             // 
-            this.buttonDelete.Location = new System.Drawing.Point(1103, 481);
+            this.buttonDelete.Location = new System.Drawing.Point(803, 376);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(294, 90);
             this.buttonDelete.TabIndex = 2;
-            this.buttonDelete.Text = "удалить студента";
+            this.buttonDelete.Text = "Удалить студента";
             this.buttonDelete.UseVisualStyleBackColor = true;
             this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
             // textBoxName
             // 
-            this.textBoxName.Location = new System.Drawing.Point(1103, 103);
+            this.textBoxName.Location = new System.Drawing.Point(808, 40);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(294, 31);
             this.textBoxName.TabIndex = 3;
@@ -82,7 +82,7 @@
             // labelName
             // 
             this.labelName.AutoSize = true;
-            this.labelName.Location = new System.Drawing.Point(1098, 75);
+            this.labelName.Location = new System.Drawing.Point(803, 12);
             this.labelName.Name = "labelName";
             this.labelName.Size = new System.Drawing.Size(149, 25);
             this.labelName.TabIndex = 4;
@@ -91,7 +91,7 @@
             // labelSpeciality
             // 
             this.labelSpeciality.AutoSize = true;
-            this.labelSpeciality.Location = new System.Drawing.Point(1098, 151);
+            this.labelSpeciality.Location = new System.Drawing.Point(803, 88);
             this.labelSpeciality.Name = "labelSpeciality";
             this.labelSpeciality.Size = new System.Drawing.Size(262, 25);
             this.labelSpeciality.TabIndex = 5;
@@ -99,7 +99,7 @@
             // 
             // textBoxSpeciality
             // 
-            this.textBoxSpeciality.Location = new System.Drawing.Point(1103, 179);
+            this.textBoxSpeciality.Location = new System.Drawing.Point(808, 116);
             this.textBoxSpeciality.Name = "textBoxSpeciality";
             this.textBoxSpeciality.Size = new System.Drawing.Size(294, 31);
             this.textBoxSpeciality.TabIndex = 6;
@@ -107,7 +107,7 @@
             // labelGroup
             // 
             this.labelGroup.AutoSize = true;
-            this.labelGroup.Location = new System.Drawing.Point(1098, 232);
+            this.labelGroup.Location = new System.Drawing.Point(803, 169);
             this.labelGroup.Name = "labelGroup";
             this.labelGroup.Size = new System.Drawing.Size(179, 25);
             this.labelGroup.TabIndex = 7;
@@ -115,7 +115,7 @@
             // 
             // textBoxGroup
             // 
-            this.textBoxGroup.Location = new System.Drawing.Point(1103, 260);
+            this.textBoxGroup.Location = new System.Drawing.Point(808, 197);
             this.textBoxGroup.Name = "textBoxGroup";
             this.textBoxGroup.Size = new System.Drawing.Size(294, 31);
             this.textBoxGroup.TabIndex = 8;
@@ -124,7 +124,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1600, 865);
+            this.ClientSize = new System.Drawing.Size(1105, 474);
             this.Controls.Add(this.textBoxGroup);
             this.Controls.Add(this.labelGroup);
             this.Controls.Add(this.textBoxSpeciality);
@@ -134,9 +134,11 @@
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.listBox1);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(6);
+            this.MaximizeBox = false;
             this.Name = "FormMain";
-            this.Text = "FormMain";
+            this.Text = "Decanate PRO";
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

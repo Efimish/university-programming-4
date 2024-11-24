@@ -1,18 +1,14 @@
-﻿using ModelLayer;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 
 namespace ViewLayer
 {
-    public interface IView
+    public interface IView<A>
+        where A : EventArgs
     {
-        void AddStudent(StudentArgs args);
+        void AddStudent(A args);
         void DeleteStudent(int index);
 
-        event EventHandler<StudentArgs> AddDataEvent;
+        event EventHandler<A> AddDataEvent;
         event EventHandler<int> DeleteDataEvent;
     }
 }

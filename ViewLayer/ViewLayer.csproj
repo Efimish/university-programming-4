@@ -81,9 +81,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ModelLayer\ModelLayer.csproj">
-      <Project>{4ad3972a-914d-4ce1-a2d0-ee15318bf7c9}</Project>
-      <Name>ModelLayer</Name>
+    <ProjectReference Include="..\Shared\Shared.csproj">
+      <Project>{7dc2b60b-ded3-47fa-ae4b-0def7ce0668c}</Project>
+      <Name>Shared</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

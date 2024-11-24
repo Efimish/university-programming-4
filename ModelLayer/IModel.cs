@@ -13,7 +13,7 @@ namespace ModelLayer
         void Delete(int index);
 
 
-        event EventHandler<StudentArgs> AddStudentEvent;
+        event EventHandler<T> AddStudentEvent;
         event EventHandler<int> DeleteStudentEvent;
     }
 }

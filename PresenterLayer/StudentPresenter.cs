@@ -1,19 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ViewLayer;
+﻿using ViewLayer;
 using ModelLayer;
+using Shared;
 
 namespace PresenterLayer
 {
     public class StudentPresenter
     {
-        private IView view = null;
+        private IView<StudentArgs> view = null;
         private IModel<Student> model = null;
 
-        public StudentPresenter(IView view, IModel<Student> model)
+        public StudentPresenter(IView<StudentArgs> view, IModel<Student> model)
         {
             this.view = view;
             this.model = model;
@@ -25,8 +21,14 @@ namespace PresenterLayer
             model.DeleteStudentEvent += DeleteStudentFromModelToView;
         }
 
-        private void AddStudentFromModelToView(object sender, StudentArgs args)
+        private void AddStudentFromModelToView(object sender, Student student)
         {
+            StudentArgs args = new StudentArgs
+            {
+                Name = student.Name,
+                Speciality = student.Speciality,
+                Group = student.Group,
+            };
             view.AddStudent(args);
         }
         private void DeleteStudentFromModelToView(object sender, int index)
@@ -35,7 +37,13 @@ namespace PresenterLayer
         }
         private void AddStudentFromViewToModel(object sender, StudentArgs args)
         {
-            model.Add(args.student);
+            Student student = new Student
+            {
+                Name = args.Name,
+                Speciality = args.Speciality,
+                Group = args.Group,
+            };
+            model.Add(student);
         }
         private void DeleteStudentFromViewToModel(object sender, int index)
         {

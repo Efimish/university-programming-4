@@ -1,41 +1,29 @@
-﻿using ModelLayer;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows.Forms;
+using Shared;
 
 namespace ViewLayer
 {
-    public partial class FormMain : Form, IView
+    public partial class FormMain : Form, IView<StudentArgs>
     {
-        private List<Student> _students = new List<Student>();
         public FormMain()
         {
             InitializeComponent();
         }
 
-        public event EventHandler<StudentArgs> AddDataEvent;
-        public event EventHandler<int> DeleteDataEvent;
+        public event EventHandler<StudentArgs> AddDataEvent = delegate { };
+        public event EventHandler<int> DeleteDataEvent = delegate { };
 
         public void AddStudent(StudentArgs args) {
-            _students.Add(args.student);
+            listBox1.Items.Add($"{args.Name} {args.Speciality} {args.Group}");
         }
         public void DeleteStudent(int index) {
-            _students.RemoveAt(index);
+            listBox1.Items.RemoveAt(index);
         }
 
         private void FormMain_Load(object sender, EventArgs e)
         {
             listBox1.Items.Clear();
-            foreach (Student s in _students)
-            {
-                listBox1.Items.Add(s);
-            }
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
@@ -50,19 +38,31 @@ namespace ViewLayer
                 return;
             }
 
-            AddDataEvent(this, new StudentArgs(new Student
+            AddDataEvent?.Invoke(this, new StudentArgs
             {
                 Name = name,
                 Speciality = speciality,
                 Group = group
-            }));
+            });
+
+            textBoxName.Text = "";
+            textBoxSpeciality.Text = "";
+            textBoxGroup.Text = "";
         }
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
             int selected = listBox1.SelectedIndex;
+            
+            if (selected < 0)
+            {
+                MessageBox.Show("Выберите студента для удаления!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
-            DeleteDataEvent(this, selected);
+            DeleteDataEvent?.Invoke(this, selected);
+
+            listBox1.SelectedIndex = -1;
         }
     }
 }
