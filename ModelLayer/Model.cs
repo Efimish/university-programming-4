@@ -6,13 +6,18 @@ using System.Threading.Tasks;
 
 namespace ModelLayer
 {
-    public class Model : IModel
+    public class Model : IModel<Student>
     {
-        public IList<Employee> employees { get; set; } = new List<Employee>();
-        public event EventHandler<EmployeeArgs> EventEmployeeAddModel = delegate { };
-        public void AddEmployee(Employee employee) {
-            employees.Add(employee);
-            EventEmployeeAddModel(this, new EmployeeArgs(employee));
+        private List<Student> _students = new List<Student>();
+        public event EventHandler<StudentArgs> EventStudentAdd = delegate { };
+        public event EventHandler<int> EventStudentDelete = delegate { };
+        public void Add(Student student) {
+            _students.Add(student);
+            EventStudentAdd(this, new StudentArgs(student));
+        }
+        public void Delete(int index) {
+            _students.RemoveAt(index);
+            EventStudentDelete(this, index);
         }
     }
 }

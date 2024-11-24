@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace ModelLayer
 {
-    public class Employee
+    public class Student
     {
         public string Name { get; set; }
+        public string Speciality { get; set; }
+        public string Group { get; set; }
     }
 }

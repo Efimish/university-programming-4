@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 
 namespace ModelLayer
 {
-    public interface IModel
+    public interface IModel<T>
+        where T : class
     {
-        void AddEmployee(Employee employee);
-        event EventHandler<EmployeeArgs> EventEmployeeAddModel;
+        void Add(T item);
+        void Delete(int index);
+        event EventHandler<StudentArgs> EventStudentAdd;
+        event EventHandler<int> EventStudentDelete;
     }
 }

@@ -21,6 +21,6 @@ namespace ViewLayer
             model = new Model();
             // presenter = new PresenterEmployee(this, model);
         }
-        public event EventHandler<EmployeeArgs> EventEmployeeAddView = delegate { };
+        public event EventHandler<StudentArgs> EventEmployeeAddView = delegate { };
     }
 }
